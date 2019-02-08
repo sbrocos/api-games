@@ -1,0 +1,22 @@
+*.rbc
+.rspec
+/log/*
+/tmp/*
+/spec/temp/
+!/log/.keep
+!/tmp/.keep
+coverage
+.sass-cache/
+
+# Ignore uploaded files in development
+/storage/*
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
