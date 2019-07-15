@@ -27,6 +27,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # serializer
 gem 'active_model_serializers', '~> 0.10.8'
+# JWT authentication
+gem 'rails_jwt_auth', '~> 1.0.1'
+gem 'friendly_id', '~> 5.2.4'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -34,6 +37,12 @@ gem 'active_model_serializers', '~> 0.10.8'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails', '~> 0.3.9'
+  gem 'pry-byebug', '~> 3.6.0'
+  gem 'factory_bot_rails', '~> 4.11.1'
+  gem 'faker', '~> 1.9.1'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'database_cleaner', '~> 1.7.0'
 end
 
 group :development do
@@ -44,6 +53,13 @@ group :development do
   gem 'rubocop', '~> 0.62', require: false
 end
 
+group :test do
+  gem 'simplecov', require: false
+  gem 'json-schema', '~> 2.8.1'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing', '~> 1.0.4'
+  gem 'fuubar', '~> 2.3.2'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

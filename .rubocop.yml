@@ -95,6 +95,7 @@ Layout/SpaceBeforeFirstArg:
 Metrics/BlockLength:
   Exclude:
     - 'Guardfile'
+    - 'spec/shared_examples/**/*.rb'
 
 Naming/FileName:
   Exclude:
@@ -121,7 +122,6 @@ Style/FrozenStringLiteralComment:
     - 'actionpack/test/**/*.builder'
     - 'actionpack/test/**/*.ruby'
     - 'activestorage/db/migrate/**/*.rb'
-    - 'db/**/*.rb'
 
 # Use `foo {}` not `foo{}`.
 Layout/SpaceBeforeBlockBraces:
@@ -183,4 +183,3 @@ Style/Semicolon:
 # Prefer Foo.method over Foo::method
 Style/ColonMethodCall:
   Enabled: true
-
