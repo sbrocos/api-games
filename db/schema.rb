@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_162932) do
+ActiveRecord::Schema.define(version: 2019_07_15_083149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "companiables", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "game_id"
+    t.uuid "company_id"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_companiables_on_company_id"
+    t.index ["game_id"], name: "index_companiables_on_game_id"
+  end
 
   create_table "companies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "company_type"
@@ -52,6 +62,12 @@ ActiveRecord::Schema.define(version: 2019_02_11_162932) do
     t.index ["slug"], name: "index_games_on_slug", unique: true
   end
 
+  create_table "games_genres", id: false, force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "genre_id", null: false
+    t.index ["game_id", "genre_id"], name: "index_games_genres_on_game_id_and_genre_id"
+  end
+
   create_table "genres", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -79,4 +95,6 @@ ActiveRecord::Schema.define(version: 2019_02_11_162932) do
     t.string "auth_tokens"
   end
 
+  add_foreign_key "companiables", "companies"
+  add_foreign_key "companiables", "games"
 end

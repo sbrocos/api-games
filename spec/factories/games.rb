@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :game do
-    name { "MyString" }
-    slug { "MyString" }
-    url { "MyString" }
+    name { 'MyString' }
+    url { 'MyString' }
     status { 1 }
-    plot { "MyString" }
-    short_plot { "MyString" }
+    plot { 'MyString' }
+    short_plot { 'MyString' }
   end
 end

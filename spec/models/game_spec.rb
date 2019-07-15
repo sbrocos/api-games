@@ -3,12 +3,6 @@
 require 'rails_helper'
 
 describe Game, type: :model do
-  context 'associations' do
-    it do
-      is_expected.to have_many(:company)
-    end
-  end
-
   context 'database columns' do
     it do
       is_expected.to have_db_column :name
@@ -18,6 +12,14 @@ describe Game, type: :model do
       is_expected.to have_db_column :status
       is_expected.to have_db_column :plot
       is_expected.to have_db_column :short_plot
+    end
+  end
+
+  context 'associations' do
+    it do
+      is_expected.to have_many(:companiables)
+      is_expected.to have_many(:companies).through(:companiables)
+      is_expected.to have_and_belong_to_many(:genres)
     end
   end
 

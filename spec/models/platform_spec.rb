@@ -21,7 +21,6 @@ describe Platform, type: :model do
     it do
       is_expected.to validate_presence_of :name
       is_expected.to validate_presence_of :abbrv_name
-      is_expected.to validate_presence_of :slug
     end
   end
 end

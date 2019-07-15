@@ -90,5 +90,5 @@ RSpec.configure do |config|
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
   # for RailsJwtAuth
-  config.include RailsJwtAuth::SpecHelpers, :type => :controller
+  config.include RailsJwtAuth::SpecHelpers, type: :controller
 end

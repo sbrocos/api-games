@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :genre do
-    name { "MyString" }
-    slug { "MyString" }
+    name { 'MyString' }
   end
 end
