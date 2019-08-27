@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -26,10 +26,10 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # serializer
-gem 'active_model_serializers', '~> 0.10.8'
+gem 'active_model_serializers', '~> 0.10.10'
 # JWT authentication
-gem 'rails_jwt_auth', '~> 1.0.1'
-gem 'friendly_id', '~> 5.2.4'
+gem 'rails_jwt_auth', '~> 1.3.1'
+gem 'friendly_id', '~> 5.2.5'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
