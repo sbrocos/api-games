@@ -15,10 +15,10 @@ class Game < ApplicationRecord
 
   private
 
-  def slug_candidates
-    [
-      :name,
-      [:name, :id],
-    ]
-  end
+    def slug_candidates
+      [
+        :name,
+        [:name, :id],
+      ]
+    end
 end

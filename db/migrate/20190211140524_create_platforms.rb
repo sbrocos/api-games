@@ -2,7 +2,7 @@
 
 class CreatePlatforms < ActiveRecord::Migration[5.2]
   def change
-    create_table :platforms, id: :uuid  do |t|
+    create_table :platforms, id: :uuid do |t|
       t.string :name
       t.string :slug
       t.string :abbrv_name

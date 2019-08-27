@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 describe Game, type: :model do
-  context 'database columns' do
+  describe 'database columns' do
     it do
       is_expected.to have_db_column :name
-      is_expected.to have_db_column :slug
       is_expected.to have_db_column :url
       is_expected.to have_db_column :slug
       is_expected.to have_db_column :status
@@ -15,7 +14,7 @@ describe Game, type: :model do
     end
   end
 
-  context 'associations' do
+  describe 'associations' do
     it do
       is_expected.to have_many(:companiables)
       is_expected.to have_many(:companies).through(:companiables)
@@ -23,7 +22,7 @@ describe Game, type: :model do
     end
   end
 
-  context 'validates' do
+  describe 'validates' do
     it { is_expected.to validate_presence_of :name }
   end
 

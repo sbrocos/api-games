@@ -2,7 +2,7 @@
 
 class CreateCompanies < ActiveRecord::Migration[5.2]
   def change
-    create_table :companies, id: :uuid  do |t|
+    create_table :companies, id: :uuid do |t|
       t.integer :company_type
       t.string :name
       t.string :slug

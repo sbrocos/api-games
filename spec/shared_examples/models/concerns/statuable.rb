@@ -2,6 +2,7 @@
 
 shared_examples_for 'statuable' do |model|
   it { expect(described_class).to include Statuable }
+  it { is_expected.to have_db_column :status }
 
   describe '.published' do
     context 'when exist a company actived' do
@@ -17,7 +18,7 @@ shared_examples_for 'statuable' do |model|
     end
 
     context 'when no exist a published company' do
-      before  { create(model, status: 'archived') }
+      before { create(model, status: 'archived') }
 
       it 'return array of one studio' do
         expect(described_class.published.size).to eq 0

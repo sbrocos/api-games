@@ -2,25 +2,24 @@
 
 require 'rails_helper'
 
-describe Platform, type: :model do
-  context 'associations' do
-  end
+describe Platform do
+  subject(:platform) { described_class.new }
 
-  context 'database columns' do
+  describe 'database columns' do
     it do
-      is_expected.to have_db_column :name
-      is_expected.to have_db_column :slug
-      is_expected.to have_db_column :abbrv_name
-      is_expected.to have_db_column :url
-      is_expected.to have_db_column :status
-      is_expected.to have_db_column :manufactur_id
+      expect(platform).to have_db_column :name
+      expect(platform).to have_db_column :slug
+      expect(platform).to have_db_column :abbrv_name
+      expect(platform).to have_db_column :url
+      expect(platform).to have_db_column :status
+      expect(platform).to have_db_column :manufactur_id
     end
   end
 
-  context 'validates' do
+  describe 'validates' do
     it do
-      is_expected.to validate_presence_of :name
-      is_expected.to validate_presence_of :abbrv_name
+      expect(platform).to validate_presence_of :name
+      expect(platform).to validate_presence_of :abbrv_name
     end
   end
 end
