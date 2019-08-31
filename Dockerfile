@@ -1,4 +1,4 @@
-FROM ruby:2.6.1-alpine
+FROM ruby:2.6.3-alpine
 MAINTAINER sergio brocos <sergiobrocos@gmail.com>
 
 # Minimal requirements to run a Rails app
