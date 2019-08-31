@@ -93,11 +93,13 @@ Layout/SpaceBeforeFirstArg:
     Enabled: true
 
 Metrics/BlockLength:
+  CountComments: false  # count full line comments?
+  Max: 25
   Exclude:
     - 'Guardfile'
     - 'spec/shared_examples/**/*.rb'
     - 'db/schema.rb'
-
+    - 'spec/**/*.rb'
 Naming/FileName:
   Exclude:
     - 'Gemfile'
