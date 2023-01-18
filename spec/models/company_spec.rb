@@ -5,12 +5,12 @@ require 'rails_helper'
 describe Company, type: :model do
   describe 'database columns' do
     it do
-      is_expected.to have_db_column :name
-      is_expected.to have_db_column :slug
-      is_expected.to have_db_column :url
-      is_expected.to have_db_column :city
-      is_expected.to have_db_column :country
-      is_expected.to have_db_column :status
+      is_expected.to have_db_column(:name).of_type(:string)
+      is_expected.to have_db_column(:slug).of_type(:string)
+      is_expected.to have_db_column(:url).of_type(:string)
+      is_expected.to have_db_column(:city).of_type(:string)
+      is_expected.to have_db_column(:country).of_type(:string)
+      is_expected.to have_db_column(:status).of_type(:integer)
     end
   end
 

@@ -5,12 +5,12 @@ require 'rails_helper'
 describe Game, type: :model do
   describe 'database columns' do
     it do
-      is_expected.to have_db_column :name
-      is_expected.to have_db_column :url
-      is_expected.to have_db_column :slug
-      is_expected.to have_db_column :status
-      is_expected.to have_db_column :plot
-      is_expected.to have_db_column :short_plot
+      is_expected.to have_db_column(:name).of_type(:string)
+      is_expected.to have_db_column(:url).of_type(:string)
+      is_expected.to have_db_column(:slug).of_type(:string)
+      is_expected.to have_db_column(:status).of_type(:integer)
+      is_expected.to have_db_column(:plot).of_type(:string)
+      is_expected.to have_db_column(:short_plot).of_type(:string)
     end
   end
 
