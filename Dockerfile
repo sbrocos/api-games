@@ -1,22 +1,17 @@
-FROM ruby:2.6.1-alpine
-MAINTAINER sergio brocos <sergiobrocos@gmail.com>
+# syntax=docker/dockerfile:1
+FROM ruby:3.2
 
-# Minimal requirements to run a Rails app
-RUN apk add --no-cache --update build-base \
-                                linux-headers \
-                                git \
-                                postgresql-dev \
-                                postgresql-client \
-                                nodejs \
-                                tzdata
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+WORKDIR /usr/src/app
+COPY Gemfile .
+COPY Gemfile.lock .
+RUN bundle install
 
-ENV APP_HOME /app
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
-
-COPY Gemfile Gemfile.lock ./
-RUN BUNDLE_PATH=/bundle gem install bundler && bundle install -j 2
-
-# Copy the application into the container
-COPY . APP_HOME
+# Add a script to be executed every time the container starts.
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
+
+# Configure the main process to run when running the image
+CMD ["rails", "server", "-b", "0.0.0.0"]

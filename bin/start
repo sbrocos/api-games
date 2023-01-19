@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require_relative "./helpers.rb"
+
+start_all_containers
+rails_install_gems
+rails_db_migrate
+
+puma_start
+
+containers_information
