@@ -8,9 +8,9 @@ describe User, type: :model do
 
   describe 'database columns' do
     it do
-      is_expected.to have_db_column(:email)
-      is_expected.to have_db_column(:password_digest)
-      is_expected.to have_db_column(:auth_tokens)
+      is_expected.to have_db_column(:email).of_type(:string)
+      is_expected.to have_db_column(:password_digest).of_type(:string)
+      is_expected.to have_db_column(:auth_tokens).of_type(:string)
     end
   end
 

@@ -5,8 +5,8 @@ require 'rails_helper'
 describe Genre, type: :model do
   describe 'database columns' do
     it do
-      is_expected.to have_db_column :name
-      is_expected.to have_db_column :slug
+      is_expected.to have_db_column(:name).of_type(:string)
+      is_expected.to have_db_column(:slug).of_type(:string)
     end
   end
 
