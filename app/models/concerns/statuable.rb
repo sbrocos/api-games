@@ -6,7 +6,7 @@ module Statuable
   included do
     enum status: %i[pending published archived]
 
-    scope :by_status, lambda { |status| where(status: status) }
+    scope :by_status, lambda { |status| where(status:) }
     scope :published, -> { where(status: 'published') }
   end
 end
