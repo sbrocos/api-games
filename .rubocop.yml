@@ -6,7 +6,7 @@ require: rubocop-rspec
 
 # Override Setting
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.2
   
 # Check quotes usage according to lint rule below.
 Style/StringLiterals:
