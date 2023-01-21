@@ -21,7 +21,7 @@ FileUtils.chdir APP_ROOT do
   wait('to initialize PgSQL database')
 
   step_info "Launching Rails container"
-  system('docker-compose -f docker-compose.yml up api -d')
+  system('docker compose -f docker-compose.yml up api -d')
 
   wait('to launch Rails Container')
 

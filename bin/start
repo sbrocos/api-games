@@ -1,10 +1,27 @@
 #!/usr/bin/env ruby
 require_relative "./helpers.rb"
+require 'pry'
 
-start_all_containers
-rails_install_gems
-rails_db_migrate
 
-puma_start
+if ARGV[0].nil?
+  start_all_containers
+  rails_install_gems
+  rails_db_migrate
 
+  puma_start
+
+  containers_information
+  exit 0
+end
+
+CONTAINER_NAMES =%i[api db redis]
+
+container_name = (ARGV[0]).strip.to_sym
+
+unless CONTAINER_NAMES.include?(container_name)
+  puts "Shell for #{container_name} is not found"
+  exit 1
+end
+
+system("docker compose -f docker-compose.yml up #{container_name} -d")
 containers_information

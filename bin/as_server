@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative "./helpers.rb"
+
+step_info "Accessing to api containers"
+system("docker container attach $(docker inspect -f '{{.Name}}' $(docker-compose ps -q api) | cut -c2-)")
