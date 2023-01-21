@@ -3,7 +3,7 @@ DELAY = 3
 $steps_counter = 1
 $steps_messages = []
 
-@puma_start_command = 'bundle exec puma -C config/_PUMA.rb'
+@puma_start_command = 'bundle exec puma -C config/_puma.rb'
 @puma_stop_command  = 'pkill -f puma'
 
 def wait(details, delay = DELAY)

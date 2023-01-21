@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require_relative "./helpers.rb"
 
-container_name = (ARGV[0] || 'rails').strip.to_sym
+container_name = (ARGV[0] || 'api').strip.to_sym
 
 CONTAINER_SHELL_MAP = {
   api: :bash,
