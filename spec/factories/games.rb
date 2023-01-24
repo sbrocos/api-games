@@ -4,8 +4,14 @@ FactoryBot.define do
   factory :game do
     name { 'MyString' }
     url { 'MyString' }
-    status { 1 }
     plot { 'MyString' }
     short_plot { 'MyString' }
+    trait :last_of_us do
+      name { 'The Last Of Us' }
+      url { 'https://thelasofus.org' }
+      workflow_state { :published }
+      plot { 'a story about Joel and Ellie' }
+      short_plot { 'a story about Joel and Ellie' }
+    end
   end
 end

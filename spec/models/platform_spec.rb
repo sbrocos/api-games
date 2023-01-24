@@ -11,8 +11,9 @@ describe Platform do
       expect(platform).to have_db_column(:slug).of_type(:string)
       expect(platform).to have_db_column(:abbrv_name).of_type(:string)
       expect(platform).to have_db_column(:url).of_type(:string)
-      expect(platform).to have_db_column(:status).of_type(:integer)
+      expect(platform).not_to have_db_column(:status).of_type(:integer)
       expect(platform).to have_db_column(:manufactur_id).of_type(:integer)
+      is_expected.to have_db_column(:workflow_state).of_type(:string).with_options(null: false)
     end
   end
 
