@@ -1,15 +1,25 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
-  include Statuable
+  include WorkflowActiverecord
   extend FriendlyId
 
   friendly_id :slug_candidates, use: :slugged
 
+  # Workflow
+  workflow do
+    state :pending
+    state :published
+    state :archivied
+  end
+
+  # Associations
   has_many :companiables
   has_many :games, through: :companiables
+  has_many :game_companies, foreign_key: 'company_id'
 
-  validates :name, presence: true
+  # Validations
+  validates :name, :name_complete, presence: true
 
   private
 

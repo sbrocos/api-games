@@ -11,6 +11,7 @@ describe User, type: :model do
       is_expected.to have_db_column(:email).of_type(:string)
       is_expected.to have_db_column(:password_digest).of_type(:string)
       is_expected.to have_db_column(:auth_tokens).of_type(:string)
+      is_expected.to have_db_column(:workflow_state).of_type(:string).with_options(null: false)
     end
   end
 

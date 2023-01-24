@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "attributes"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string", "default": "company" },
+    "attributes": {
+      "type": "object",
+      "required": ["name", "name_complete", "url", "description"],
+      "properties": {
+        "name": { "type": "string" },
+        "name_complete": { "type": "string" },
+        "url": { "type": "string" },
+        "description": { "type": "text" }
+      }, "additionalProperties": false
+    }
+  }, "additionalProperties": false
+}

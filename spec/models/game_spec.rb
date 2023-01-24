@@ -8,9 +8,10 @@ describe Game, type: :model do
       is_expected.to have_db_column(:name).of_type(:string)
       is_expected.to have_db_column(:url).of_type(:string)
       is_expected.to have_db_column(:slug).of_type(:string)
-      is_expected.to have_db_column(:status).of_type(:integer)
+      is_expected.not_to have_db_column(:status).of_type(:integer)
       is_expected.to have_db_column(:plot).of_type(:string)
       is_expected.to have_db_column(:short_plot).of_type(:string)
+      is_expected.to have_db_column(:workflow_state).of_type(:string).with_options(null: false)
     end
   end
 
@@ -25,6 +26,4 @@ describe Game, type: :model do
   describe 'validates' do
     it { is_expected.to validate_presence_of :name }
   end
-
-  it_behaves_like 'statuable', :game
 end

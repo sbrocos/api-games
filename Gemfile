@@ -26,10 +26,14 @@ gem 'puma', '~> 4.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # serializer
-gem 'active_model_serializers', '~> 0.10.10'
+gem 'jsonapi-serializer'
+
 # JWT authentication
 gem 'rails_jwt_auth', '~> 2.0.3'
 gem 'friendly_id', '~> 5.5'
+
+# workflow library
+gem 'workflow-activerecord', '~> 6.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'

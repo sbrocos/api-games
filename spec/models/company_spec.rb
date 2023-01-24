@@ -2,15 +2,18 @@
 
 require 'rails_helper'
 
-describe Company, type: :model do
+RSpec.describe Company, type: :model do
   describe 'database columns' do
     it do
       is_expected.to have_db_column(:name).of_type(:string)
+      is_expected.to have_db_column(:name_complete).of_type(:string)
       is_expected.to have_db_column(:slug).of_type(:string)
       is_expected.to have_db_column(:url).of_type(:string)
       is_expected.to have_db_column(:city).of_type(:string)
       is_expected.to have_db_column(:country).of_type(:string)
-      is_expected.to have_db_column(:status).of_type(:integer)
+      is_expected.to have_db_column(:type).of_type(:string)
+      is_expected.to have_db_column(:workflow_state).of_type(:string).with_options(null: false)
+      is_expected.to have_db_column(:parent_id).of_type(:uuid)
     end
   end
 
@@ -23,7 +26,6 @@ describe Company, type: :model do
 
   describe 'validates' do
     it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :name_complete }
   end
-
-  it_behaves_like 'statuable', :company
 end

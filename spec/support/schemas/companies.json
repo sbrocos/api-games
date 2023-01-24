@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "definitions/company.json" }
+    }
+  }, "additionalProperties": false
+}
