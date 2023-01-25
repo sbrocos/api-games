@@ -17,6 +17,15 @@ if ENV['COVERAGE']
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+
+    with.library :active_record
+    with.library :active_model
+  end
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -91,4 +100,7 @@ RSpec.configure do |config|
 
   # for RailsJwtAuth
   config.include RailsJwtAuth::SpecHelpers, type: :controller
+
+  # For use JsonHelpers
+  config.include Request::JsonHelpers
 end

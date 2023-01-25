@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Class Model for Studios
+# Class Model for Developers
 class Developer < Company
   # Associations
   belongs_to :publisher, foreign_key: 'parent_id', optional: true

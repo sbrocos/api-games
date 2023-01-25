@@ -10,5 +10,6 @@ shared_context :last_of_us_complete do
   before do
     naughty_developer_companiable
     sony_publisher_companiable
+    sony_publisher.developers.push(naughty_dog)
   end
 end
