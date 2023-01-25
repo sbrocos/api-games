@@ -30,4 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  error:
+    parameter_not_found: Sorry, there was an internal error with some parameter
+  errors:
+    messages:
+      record_invalid: Record invalid
+  exception:
+    unknown: There's a temporary error, please try again in a few minutes
