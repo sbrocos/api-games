@@ -2,10 +2,13 @@
   "type": "object",
   "required": ["data"],
   "properties": {
-    "data": {
+    "data": { "$ref": "definitions/publisher.json" },
+    "included": {
       "type": "array",
       "uniqueItems": true,
-      "items": { "$ref": "definitions/company.json" }
+      "items": [
+        { "$ref": "included/developer.json" }
+      ]
     }
   },
   "additionalProperties": false

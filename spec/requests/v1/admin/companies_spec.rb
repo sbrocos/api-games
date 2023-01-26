@@ -23,9 +23,35 @@ RSpec.describe 'Admin Companies', type: :request do
         expect(response).to have_http_status 201
         expect(response).to match_response_schema('company')
 
-        expect(response.json).to eq V1::CompanySerializer.new(
+        expect(response.body).to eq V1::CompanySerializer.new(
           Company.first, {}
-        ).serializable_hash.as_json
+        ).serializable_hash.to_json
+      end
+    end
+
+    context 'when type is Publisher' do
+      let(:instance) { build(:publisher) }
+
+      it do
+        expect(response).to have_http_status 201
+        expect(response).to match_response_schema('publisher')
+
+        expect(response.body).to eq ::V1::PublisherSerializer.new(
+          Publisher.first, include: [:developers]
+        ).serializable_hash.to_json
+      end
+    end
+
+    context 'when type is Developer' do
+      let(:instance) { build(:developer) }
+
+      it do
+        expect(response).to have_http_status 201
+        expect(response).to match_response_schema('developer')
+
+        expect(response.body).to eq V1::DeveloperSerializer.new(
+          Developer.first, include: [:publisher]
+        ).serializable_hash.to_json
       end
     end
   end

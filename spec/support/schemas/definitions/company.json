@@ -18,7 +18,9 @@
         "city": { "type": ["string", "null"]},
         "country": { "type": ["string", "null"]},
         "description": { "type": "text" }
-      }, "additionalProperties": false
+      },
+      "additionalProperties": false
     }
-  }, "additionalProperties": false
+  },
+  "additionalProperties": false
 }

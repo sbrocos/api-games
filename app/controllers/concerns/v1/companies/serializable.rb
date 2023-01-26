@@ -20,7 +20,7 @@ module V1
         when 'Developer'
           { include: [:publisher, :games] }
         when 'Publisher'
-          { include: [:developer] }
+          { include: [:developers] }
         else
           {}
         end

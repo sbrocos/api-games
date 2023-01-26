@@ -5,7 +5,7 @@
     "data": {
       "type": "array",
       "uniqueItems": true,
-      "items": { "$ref": "definitions/company.json" }
+      "items": { "$ref": "definitions/publisher.json" }
     }
   },
   "additionalProperties": false

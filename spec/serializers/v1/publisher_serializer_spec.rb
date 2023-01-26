@@ -3,41 +3,78 @@
 require 'rails_helper'
 
 describe ::V1::PublisherSerializer do
-  let(:options) { { include: [:developers] } }
-
   subject(:serialize) { described_class.new(company, options).serializable_hash }
+
+  let(:options) { { include: [:developers] } }
+  let(:json_response) do
+    {
+      data: {
+        id: company.id.to_s,
+        type: :publisher,
+        attributes: attributes_params,
+        relationships: relationships_params
+      },
+      included: included_params
+    }
+  end
 
   context 'when it have developers associated' do
     include_context :last_of_us_complete
 
     let(:company) { sony_publisher }
+    let(:attributes_params) do
+      {
+        name: 'Sony',
+        name_complete: 'Sony Publisher',
+        url: 'https://sony.com',
+        city: 'MyString',
+        country: 'Japan',
+        description: 'the big japanese publisher'
+      }
+    end
+    let(:relationships_params) do
+      {
+        developers: {
+          data: [{
+            id: naughty_dog.id,
+            type: :developer
+          }]
+        }
+      }
+    end
+    let(:included_params) do
+      [{
+        id: naughty_dog.id,
+        type: :developer,
+        attributes: {
+          name: 'Naughty Dog',
+          name_complete: 'Naughty Dog Developer\'s'
+        }
+      }]
+    end
 
-    it do
-      attributes = serialize[:data][:attributes]
-      relationships = serialize[:data][:relationships][:developers][:data]
-      included = serialize[:included]
-
-      expect(serialize[:data][:id]).to eq company.id.to_s
-      expect(serialize[:data][:type]).to eq :publisher
-      expect(attributes[:name]).to eq 'Sony'
-
-      expect(attributes[:name_complete]).to eq 'Sony Publisher'
-      expect(attributes[:url]).to eq 'https://sony.com'
-      expect(attributes[:description]).to eq 'the big japanese publisher'
-
-      expect(included[0][:type]).to eq :developer
-      expect(included[0][:id]).to eq relationships[0][:id]
-      expect(included[0][:attributes][:name]).to eq 'Naughty Dog'
-      expect(included[0][:attributes][:name_complete]).to eq 'Naughty Dog Developer\'s'
+    it 'returns all data' do
+      expect(serialize).to eq json_response
     end
   end
 
   context 'when it not have developers associated' do
     let(:company) { create(:publisher) }
+    let(:attributes_params) do
+      {
+        name: 'MyString',
+        name_complete: 'MyString',
+        url: 'MyString',
+        city: 'MyString',
+        country: 'MyString',
+        description: 'MyString'
+      }
+    end
+    let(:relationships_params) { {} }
+    let(:included_params) { [] }
 
-    it do
-      expect(serialize[:data][:relationships]).to eq({})
-      expect(serialize[:included]).to eq []
+    it 'returns hash with relationships and included fields empties' do
+      expect(serialize).to eq json_response
     end
   end
 end

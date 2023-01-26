@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": { "$ref": "definitions/developer.json" },
+    "included": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": [
+        { "$ref": "included/publisher.json" },
+        { "$ref": "included/game.json" }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -6,5 +6,7 @@ Rails.application.routes.draw do
       resources :companies, except: [:index, :show]
     end
     resources :companies, only: [:index, :show]
+    resources :publishers, controller: :companies, type: 'Publisher', only: [:index, :show]
+    resources :developers, controller: :companies, type: 'Developer', only: [:index, :show]
   end
 end

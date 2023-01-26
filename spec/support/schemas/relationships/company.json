@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "require": ["data"],
+  "properties": {
+    "data": {
+      "type": "object",
+      "require": ["id", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "default": "company" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

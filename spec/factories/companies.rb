@@ -8,6 +8,7 @@ FactoryBot.define do
     city { 'MyString' }
     country { 'MyString' }
     workflow_state { :published }
+    description { 'MyString' }
 
     trait :sony do
       name { 'Sony' }

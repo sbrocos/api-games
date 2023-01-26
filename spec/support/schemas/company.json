@@ -3,5 +3,6 @@
   "required": ["data"],
   "properties": {
     "data": { "$ref": "definitions/company.json" }
-  }, "additionalProperties": false
+  },
+  "additionalProperties": false
 }
