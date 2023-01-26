@@ -14,6 +14,7 @@ describe V1::CompanySerializer do
     expect(data[:id]).to eq company.id.to_s
     expect(data[:type]).to eq :company
     expect(attributes[:name]).to eq 'Sony'
+    expect(attributes[:name_complete]).to eq 'Sony Company'
     expect(attributes[:url]).to eq 'https://sony.com'
   end
 end

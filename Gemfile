@@ -38,6 +38,12 @@ gem 'workflow-activerecord', '~> 6.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+# tracking
+gem 'rollbar'
+
+# others
+gem 'oj', '~> 3.7'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -61,7 +67,7 @@ end
 
 group :test do
   gem 'simplecov', require: false
-  gem 'json-schema', '~> 2.8.1'
+  gem 'json-schema', '~> 3.0'
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing', '~> 1.0.4'
   gem 'fuubar', '~> 2.3.2'

@@ -4,6 +4,6 @@ module V1
   class CompanySerializer
     include JSONAPI::Serializer
 
-    attributes :name, :url, :city, :country, :workflow_state
+    attributes :name, :name_complete, :url, :city, :country, :description
   end
 end

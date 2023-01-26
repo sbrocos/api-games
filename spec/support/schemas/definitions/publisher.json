@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "attributes",
+    "relationships"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string", "default": "publisher" },
+    "attributes": {
+      "type": "object",
+      "items": {
+        "properties": {
+          "name": { "type": "string" },
+          "name_complete": { "type": "string" },
+          "url": { "type": "string" },
+          "description": { "type": "text" },
+          "city": { "type": ["string", "null"]},
+          "country": { "type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "relationships": {
+      "type": ["object", "null"],
+      "items" : {
+        "properties": {
+          "developers": { "$ref": "../relationships/developers.json" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }, "additionalProperties": false
+}

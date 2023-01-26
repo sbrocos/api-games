@@ -1,0 +1,16 @@
+{
+  "type": ["object", "null"],
+  "require": ["data"],
+  "properties": {
+    "data": {
+      "type": ["object", "null"],
+      "require": ["id", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": ["string", "null"]
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

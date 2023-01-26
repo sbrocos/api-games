@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": { "$ref": "definitions/publisher.json" },
+    "included": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": [
+        { "$ref": "included/developer.json" }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

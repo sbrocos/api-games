@@ -1,0 +1,28 @@
+{
+  "type": ["object", "null"],
+  "required": [
+    "id",
+    "type",
+    "attributes"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": {
+      "type": "string",
+      "default": "publisher"
+    },
+    "attributes": {
+      "type": "object",
+      "require": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "name": { "type": "string" },
+        "name_complete": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
