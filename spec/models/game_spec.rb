@@ -25,5 +25,8 @@ describe Game, type: :model do
 
   describe 'validates' do
     it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :url }
+    it { is_expected.to validate_presence_of :short_plot }
+    it { is_expected.to validate_presence_of :plot }
   end
 end
