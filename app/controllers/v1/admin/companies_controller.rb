@@ -3,8 +3,9 @@
 module V1
   module Admin
     class CompaniesController < BaseController
-      include Companies::Typezable,
-              Companies::Serializable
+      include Serializable,
+              Companies::Serializable,
+              Companies::Typezable
 
       # POST /v1/admin/companies
       def create

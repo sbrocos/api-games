@@ -2,8 +2,10 @@
 
 module V1
   class CompaniesController < ::V1::BaseController
-    include Companies::Typezable,
-            Companies::Serializable
+    include Serializable,
+            Companies::Serializable,
+            Companies::Typezable
+
     def index
       render json: serializer(companies)
     end

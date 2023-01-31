@@ -8,7 +8,7 @@ FactoryBot.define do
     short_plot { 'MyString' }
     trait :last_of_us do
       name { 'The Last Of Us' }
-      url { 'https://thelasofus.org' }
+      url { 'https://thelastofus.org' }
       workflow_state { :published }
       plot { 'a story about Joel and Ellie' }
       short_plot { 'a story about Joel and Ellie' }

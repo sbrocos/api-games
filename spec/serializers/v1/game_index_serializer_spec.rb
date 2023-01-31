@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ::V1::GameSerializer do
+RSpec.describe ::V1::GameIndexSerializer do
   subject(:serialize) { described_class.new(game, options).serializable_hash }
 
   let(:options) { { include: %i[developers publishers genres] } }
@@ -25,7 +25,6 @@ RSpec.describe ::V1::GameSerializer do
       name: 'The Last Of Us',
       url: 'https://thelastofus.org',
       short_plot: 'a story about Joel and Ellie',
-      plot: 'a story about Joel and Ellie'
     }
   end
   let(:relation_params) do
@@ -96,7 +95,6 @@ RSpec.describe ::V1::GameSerializer do
         name: 'MyString',
         url: 'MyString',
         short_plot: 'MyString',
-        plot: 'MyString'
       }
     end
     let(:relation_params) { {} }

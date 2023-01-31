@@ -22,7 +22,7 @@ class Game < ApplicationRecord
   has_and_belongs_to_many :genres
 
   # validations
-  validates_presence_of :name
+  validates_presence_of :name, :url, :short_plot, :plot
 
   private
 

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "require": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "require": ["id", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "type": "string", "default": "games" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

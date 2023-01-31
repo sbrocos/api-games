@@ -5,20 +5,12 @@ module V1
     module Serializable
       extend ActiveSupport::Concern
 
-      def serializer(resource)
-        ::V1.const_get("#{type}Serializer").new(resource).serializable_hash.to_json
-      end
-
-      def serializer_with_options(resource)
-        ::V1.const_get("#{type}Serializer").new(resource, options).serializable_hash.to_json
-      end
-
       private
 
-      def options
+      def options_to_serialize
         case type
         when 'Developer'
-          { include: [:publisher, :games] }
+          { include: %i[publisher games] }
         when 'Publisher'
           { include: [:developers] }
         else
