@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "attributes",
+    "relationships"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string", "default": "developers" },
+    "attributes": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "short_plot": { "type": "string" },
+        "plot": { "type": "string" }
+      },"additionalProperties": false
+    },
+    "relationships": {
+      "type": "object",
+      "properties": {
+        "developers": { "$ref": "../relationships/developers.json" },
+        "publishers": { "$ref": "../relationships/publishers.json" },
+        "genres": { "$ref": "../relationships/genres.json" }
+      }, "additionalProperties": false
+    }
+  }, "additionalProperties": false
+}

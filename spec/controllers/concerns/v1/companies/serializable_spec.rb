@@ -6,8 +6,9 @@ describe V1::Companies::Serializable do
   let(:example) { create(:developer) }
   let(:controller) do
     Class.new(V1::BaseController) do
-      include V1::Companies::Typezable
+      include V1::Serializable
       include V1::Companies::Serializable
+      include V1::Companies::Typezable
 
       def define_type
         'Developer'

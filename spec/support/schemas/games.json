@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "definitions/short_game.json" }
+    }
+  }, "additionalProperties": false
+}
