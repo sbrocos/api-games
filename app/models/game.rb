@@ -15,7 +15,10 @@ class Game < ApplicationRecord
 
   # Associations
   has_many :companiables
-  has_many :companies, through: :companiables
+  has_many :companies, -> { where(type: nil) }, through: :companiables
+  has_many :publishers, through: :companiables
+  has_many :developers, through: :companiables
+
   has_and_belongs_to_many :genres
 
   # validations

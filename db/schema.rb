@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_111401) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_30_201928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -54,16 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_111401) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "game_companies", force: :cascade do |t|
-    t.boolean "main", default: false
-    t.uuid "game_id", null: false
-    t.uuid "company_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_game_companies_on_company_id"
-    t.index ["game_id"], name: "index_game_companies_on_game_id"
-  end
-
   create_table "games", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -77,9 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_111401) do
   end
 
   create_table "games_genres", id: false, force: :cascade do |t|
-    t.bigint "game_id", null: false
-    t.bigint "genre_id", null: false
-    t.index ["game_id", "genre_id"], name: "index_games_genres_on_game_id_and_genre_id"
+    t.uuid "game_id", default: -> { "gen_random_uuid()" }, null: false
+    t.uuid "genre_id", default: -> { "gen_random_uuid()" }, null: false
   end
 
   create_table "genres", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -112,6 +101,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_111401) do
 
   add_foreign_key "companiables", "companies"
   add_foreign_key "companiables", "games"
-  add_foreign_key "game_companies", "companies"
-  add_foreign_key "game_companies", "games"
 end

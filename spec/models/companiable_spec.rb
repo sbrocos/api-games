@@ -15,6 +15,8 @@ describe Companiable, type: :model do
     it do
       is_expected.to belong_to(:game)
       is_expected.to belong_to(:company)
+      is_expected.to belong_to(:publisher).with_foreign_key(:company_id).optional
+      is_expected.to belong_to(:developer).with_foreign_key(:company_id).optional
     end
   end
 
