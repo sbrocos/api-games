@@ -19,6 +19,8 @@ describe Game, type: :model do
     it do
       is_expected.to have_many(:companiables)
       is_expected.to have_many(:companies).through(:companiables)
+      is_expected.to have_many(:publishers).through(:companiables)
+      is_expected.to have_many(:developers).through(:companiables)
       is_expected.to have_and_belong_to_many(:genres)
     end
   end

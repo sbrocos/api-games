@@ -3,7 +3,13 @@
 require 'rails_helper'
 
 describe Publisher, type: :model do
-  context 'associations' do
+  describe 'database columns' do
+    it do
+      is_expected.to have_db_column(:parent_id).of_type(:uuid)
+    end
+  end
+
+  describe 'associations' do
     it { is_expected.to have_many(:developers).with_foreign_key(:parent_id) }
   end
 end

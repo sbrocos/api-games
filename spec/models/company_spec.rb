@@ -21,6 +21,7 @@ RSpec.describe Company, type: :model do
     it do
       is_expected.to have_many(:companiables)
       is_expected.to have_many(:games).through(:companiables)
+      is_expected.to have_many(:games).through(:companiables)
     end
   end
 

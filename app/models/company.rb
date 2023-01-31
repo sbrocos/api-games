@@ -16,7 +16,6 @@ class Company < ApplicationRecord
   # Associations
   has_many :companiables
   has_many :games, through: :companiables
-  has_many :game_companies, foreign_key: 'company_id'
 
   # Validations
   validates :name, :name_complete, presence: true
