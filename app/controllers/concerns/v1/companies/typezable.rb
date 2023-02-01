@@ -14,7 +14,7 @@ module V1
       private
 
       def companies
-        @companies ||= Object.const_get(type).all
+        @companies ||= Object.const_get(type).with_published_state
       end
 
       def company
